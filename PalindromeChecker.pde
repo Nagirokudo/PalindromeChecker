@@ -17,13 +17,35 @@ public void setup()
 public boolean palindrome(String word)
 {
   //your code here
+  String around = new String();
+  //noSpace
+  for (int i = 0; i < word.length(); i++)
+  {
+    if (word.substring(i, i+1).equals(" "))
+    {
+      word = word.substring(0, i) + word.substring(i+1);
+      i--;
+    }
+  }
+
+  //isPalindrome
+  if (word.substring(0, word.length()).equals(around))
+    {
+      return true; 
+    }
+
   return false;
 }
+
 public String reverse(String str)
 {
-    String sNew = new String();
-    //your code here
-    return sNew;
+  String sNew = new String();
+
+  for (int i = str.length()-1; i >= 0; i--)
+  {
+    sNew = sNew + str.charAt(i);
+  }
+  return sNew;
 }
 
 
