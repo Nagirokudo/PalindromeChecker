@@ -18,41 +18,9 @@ public void setup()
 
 public boolean palindrome(String word)
 {
-  //your code here
-
-  //noSpace
-  String sNew = new String();
-  for (int i = 0; i < word.length(); i++)
-  {
-    if (word.substring(i, i+1).equals(" "))
-    {
-      sNew = sNew + word.substring(0, i) + word.substring(i+1);
-      i--;
-    }
-  }
-
-  //numLetter
-  for (int i =0; i < word.length(); i++)
-  {
-    if (Character.isLetter(word.charAt(i)) == true)
-    {
-      sNew = sNew + word.charAt(i);
-    }
-    else if (Character.isLetter(word.charAt(i)) == false)
-    {
-      sNew = sNew + word.charAt(i+1);
-    }
-  }
-
-  word.toLowerCase();
-
-  String around = new String();
+  
   //isPalindrome
-  for (int i = word.length()-1; i >= 0; i--)
-  {
-    around = around + word.charAt(i);
-  }
-  if (word.substring(0, word.length()).equals(around))
+  if (fix(word).equals(reverse(word)))
     {
       return true; 
     }
@@ -60,13 +28,27 @@ public boolean palindrome(String word)
   return false;
 }
 
-public String reverse(String str)
+public String fix(String str)
 {
+  String s = new String();
+  for (int i = 0; i < str.length(); i++)
+  {
+    if (str.substring(i, i+1).equals(" "))
+    {
+      s = s + str.substring(0, i) + str.substring(i+1);
+    }
+  }
+  return s.toLowerCase();
+}
+
+public String reverse(String s)
+{
+  String term = fix(s);
   String sNew = new String();
 
-  for (int i = str.length()-1; i >= 0; i--)
+  for (int i = term.length()-1; i >= 0; i--)
   {
-    sNew = sNew + str.charAt(i);
+    sNew = sNew + term.charAt(i);
   }
   return sNew;
 }
