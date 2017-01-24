@@ -33,7 +33,7 @@ public String fix(String str)
   String s = new String();
   for (int i = 0; i < str.length(); i++)
   {
-    if (str.substring(i, i+1).equals(" "))
+    if (str.substring(i, i+1).equals(" ") && Character.isLetter(str.charAt(i)) == true)
     {
       s = s + str.substring(0, i) + str.substring(i+1);
     }
